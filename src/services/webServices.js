@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.adminLogin = undefined;
+exports.deactivateSeller = exports.activateSeller = exports.deactivateBuyer = exports.activateBuyer = exports.getAllSeller = exports.getAllBuyer = exports.adminLogin = undefined;
 
 let adminLogin = exports.adminLogin = (() => {
   var _ref = _asyncToGenerator(function* (payload) {
@@ -13,6 +13,72 @@ let adminLogin = exports.adminLogin = (() => {
 
   return function adminLogin(_x) {
     return _ref.apply(this, arguments);
+  };
+})();
+
+let getAllBuyer = exports.getAllBuyer = (() => {
+  var _ref2 = _asyncToGenerator(function* () {
+    let resp = yield _axios2.default.get("/admin/buyer/all");
+    return resp;
+  });
+
+  return function getAllBuyer() {
+    return _ref2.apply(this, arguments);
+  };
+})();
+
+let getAllSeller = exports.getAllSeller = (() => {
+  var _ref3 = _asyncToGenerator(function* () {
+    let resp = yield _axios2.default.get("/admin/seller/all");
+    return resp;
+  });
+
+  return function getAllSeller() {
+    return _ref3.apply(this, arguments);
+  };
+})();
+
+let activateBuyer = exports.activateBuyer = (() => {
+  var _ref4 = _asyncToGenerator(function* (id) {
+    let resp = yield _axios2.default.put("/admin/buyer/activate/" + id);
+    return resp;
+  });
+
+  return function activateBuyer(_x2) {
+    return _ref4.apply(this, arguments);
+  };
+})();
+
+let deactivateBuyer = exports.deactivateBuyer = (() => {
+  var _ref5 = _asyncToGenerator(function* (id) {
+    let resp = yield _axios2.default.put("/admin/buyer/deactivate/" + id);
+    return resp;
+  });
+
+  return function deactivateBuyer(_x3) {
+    return _ref5.apply(this, arguments);
+  };
+})();
+
+let activateSeller = exports.activateSeller = (() => {
+  var _ref6 = _asyncToGenerator(function* (id) {
+    let resp = yield _axios2.default.put("/admin/seller/activate/" + id);
+    return resp;
+  });
+
+  return function activateSeller(_x4) {
+    return _ref6.apply(this, arguments);
+  };
+})();
+
+let deactivateSeller = exports.deactivateSeller = (() => {
+  var _ref7 = _asyncToGenerator(function* (id) {
+    let resp = yield _axios2.default.put("/admin/seller/deactivate/" + id);
+    return resp;
+  });
+
+  return function deactivateSeller(_x5) {
+    return _ref7.apply(this, arguments);
   };
 })();
 
