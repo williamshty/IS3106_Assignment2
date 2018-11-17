@@ -13,8 +13,8 @@ function RouterConfig({ history }) {
         <Route path="/" exact component={LandingPage} />
         <Route path="/auth" component={AuthPage} />
         <Route path="/admin" component={AdminIndexPage} />
-        <Route path="/seller" component={BuyerIndexPage} />
-        <Route path="/buyer" component={SellerIndexPage} />
+        <Route path="/seller" component={SellerIndexPage} />
+        <Route path="/buyer" component={BuyerIndexPage} />
       </Switch>
     </Router>
   );
