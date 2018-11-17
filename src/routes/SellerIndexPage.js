@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "dva";
 
-class LoginForm extends React.Component {
+class SellerIndexPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,14 +12,14 @@ class LoginForm extends React.Component {
   componentWillUnmount() {}
 
   render() {
-    return <div>LoginForm</div>;
+    return <div>SellerIndexPage</div>;
   }
 }
 
-LoginForm.propTypes = {};
+SellerIndexPage.propTypes = {};
 
 function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(SellerIndexPage);

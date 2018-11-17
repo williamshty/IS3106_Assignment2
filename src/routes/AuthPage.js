@@ -19,7 +19,7 @@ class AuthPage extends React.Component {
   render() {
     return (
       <AuthLayout>
-        <div>Hello World</div>
+        <div>Auth Page</div>
       </AuthLayout>
     );
   }

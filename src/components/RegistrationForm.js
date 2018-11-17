@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "dva";
 
-class LoginForm extends React.Component {
+class RegistrationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,14 +12,14 @@ class LoginForm extends React.Component {
   componentWillUnmount() {}
 
   render() {
-    return <div>LoginForm</div>;
+    return <div>RegistrationForm</div>;
   }
 }
 
-LoginForm.propTypes = {};
+RegistrationForm.propTypes = {};
 
 function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(LoginForm);
+export default connect(mapStateToProps)(RegistrationForm);
