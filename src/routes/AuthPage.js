@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "dva";
 import styled from "styled-components";
+import LoginForm from "../components/LoginForm";
+import RegistrationForm from "../components/RegistrationForm";
+
 const AuthLayout = styled.div`
   width: 100%;
   height: 100%;
@@ -19,7 +22,8 @@ class AuthPage extends React.Component {
   render() {
     return (
       <AuthLayout>
-        <div>Auth Page</div>
+        {this.props.navigator.loginShow && <LoginForm />}
+        {this.props.navigator.registrationShow && <RegistrationForm />}
       </AuthLayout>
     );
   }

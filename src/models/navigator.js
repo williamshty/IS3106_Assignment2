@@ -4,8 +4,7 @@ export default {
   state: {
     login: false,
     userType: "",
-    landingShow: false,
-    loginShow: false,
+    loginShow: true,
     registrationShow: false,
     profileShow: false,
     userTableShow: false,
@@ -50,7 +49,7 @@ export default {
       return {
         ...state,
         ...{
-          loginShow: false,
+          loginShow: true,
           registrationShow: false,
           profileShow: false,
           userTableShow: false,
