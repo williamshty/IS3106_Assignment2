@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "dva";
 
-class Example extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,10 +16,10 @@ class Example extends React.Component {
   }
 }
 
-Example.propTypes = {};
+LoginForm.propTypes = {};
 
 function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(Example);
+export default connect(mapStateToProps)(LoginForm);
