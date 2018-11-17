@@ -122,3 +122,27 @@ export async function buyerUpdateProfile(payload) {
   );
   return resp;
 }
+
+export async function buyerGetAllItem() {
+  let resp = await axios.get(`/buyer/item/all`);
+  return resp;
+}
+
+export async function buyerSearchItem(payload) {
+  const { type, key } = payload;
+  let resp = await axios.get(`/buyer/item/search/${type}/${key}`);
+  return resp;
+}
+
+export async function buyerGetAllOrder(buyerID) {
+  let resp = await axios.get("/buyer/order/all/" + buyerID);
+  return resp;
+}
+
+export async function buyerCreateOrder(payload) {
+  const { itemID, sellerID, buyerID } = payload;
+  let resp = await axios.put(
+    `/buyer/order/create/${itemID}/${sellerID}/${buyerID}`
+  );
+  return resp;
+}

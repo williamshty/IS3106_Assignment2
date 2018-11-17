@@ -1,5 +1,8 @@
 "use strict";
 
+//************* */
+//ADMIN
+//************* */
 let adminLoginFunc = (() => {
   var _ref = _asyncToGenerator(function* (payload) {
     const adminLoginResp = yield (0, _webServices.adminLogin)(payload);
@@ -92,6 +95,9 @@ let deactivateSellerFunc = (() => {
     return _ref7.apply(this, arguments);
   };
 })(); // deactivateSellerFunc(201);
+//************* */
+//SELLER
+//************* */
 
 
 let sellerRegisterFunc = (() => {
@@ -252,9 +258,15 @@ let sellerUpdateOrderStatusFunc = (() => {
   return function sellerUpdateOrderStatusFunc(_x15) {
     return _ref17.apply(this, arguments);
   };
-})();
-
+})(); // sellerUpdateOrderStatusFunc({
+//   orderID: 260,
+//   newStatus: "STYSTYHELLO"
+// });
+//************* */
 //BUYER
+//************* */
+
+
 let buyerRegisterFunc = (() => {
   var _ref18 = _asyncToGenerator(function* (payload) {
     const buyerRegisterResp = yield (0, _webServices.buyerRegister)(payload);
@@ -306,13 +318,76 @@ let buyerUpdateProfileFunc = (() => {
 // });
 
 
+let buyerGetAllItemFunc = (() => {
+  var _ref21 = _asyncToGenerator(function* () {
+    const buyerGetAllItemResp = yield (0, _webServices.buyerGetAllItem)();
+    console.log("buyerGetAllItem Status Code: " + buyerGetAllItemResp.status);
+    console.log("buyerGetAllItem Data: " + JSON.stringify(buyerGetAllItemResp.data));
+  });
+
+  return function buyerGetAllItemFunc() {
+    return _ref21.apply(this, arguments);
+  };
+})(); // buyerGetAllItemFunc();
+
+
+let buyerSearchItemFunc = (() => {
+  var _ref22 = _asyncToGenerator(function* (payload) {
+    const buyerSearchItemResp = yield (0, _webServices.buyerSearchItem)(payload);
+    console.log("buyerSearchItem Status Code: " + buyerSearchItemResp.status);
+    console.log("buyerSearchItem Data: " + JSON.stringify(buyerSearchItemResp.data));
+  });
+
+  return function buyerSearchItemFunc(_x19) {
+    return _ref22.apply(this, arguments);
+  };
+})(); // buyerSearchItemFunc({
+//   type: "quantity",
+//   key: 100
+// });
+// buyerSearchItemFunc({
+//   type: "keyword",
+//   key: "o"
+// });
+// buyerSearchItemFunc({
+//   type: "category",
+//   key: "this"
+// });
+
+
+let buyerGetAllOrderFunc = (() => {
+  var _ref23 = _asyncToGenerator(function* (buyerID) {
+    const buyerGetAllOrderResp = yield (0, _webServices.buyerGetAllOrder)(buyerID);
+    console.log("buyerGetAllOrder Status Code: " + buyerGetAllOrderResp.status);
+    console.log("buyerGetAllOrder Data: " + JSON.stringify(buyerGetAllOrderResp.data));
+  });
+
+  return function buyerGetAllOrderFunc(_x20) {
+    return _ref23.apply(this, arguments);
+  };
+})(); // buyerGetAllOrderFunc(101);
+
+
+let buyerCreateOrderFunc = (() => {
+  var _ref24 = _asyncToGenerator(function* (payload) {
+    const buyerCreateOrderResp = yield (0, _webServices.buyerCreateOrder)(payload);
+    console.log("buyerCreateOrder Status Code: " + buyerCreateOrderResp.status);
+    console.log("buyerCreateOrder Data: " + JSON.stringify(buyerCreateOrderResp.data));
+  });
+
+  return function buyerCreateOrderFunc(_x21) {
+    return _ref24.apply(this, arguments);
+  };
+})();
+
 var _webServices = require("../services/webServices");
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-sellerUpdateOrderStatusFunc({
-  orderID: 260,
-  newStatus: "STYSTYHELLO"
+buyerCreateOrderFunc({
+  itemID: 552,
+  sellerID: 201,
+  buyerID: 101
 });

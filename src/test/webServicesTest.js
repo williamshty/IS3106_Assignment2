@@ -9,16 +9,20 @@ import {
   sellerRegister,
   sellerLogin,
   sellerUpdateProfile,
-  buyerRegister,
-  buyerLogin,
-  buyerUpdateProfile,
   sellerAddItem,
   sellerEditItem,
   sellerDeleteItem,
   sellerGetAllItem,
   sellerSearchItemByKey,
   sellerGetAllOrder,
-  sellerUpdateOrderStatus
+  sellerUpdateOrderStatus,
+  buyerRegister,
+  buyerLogin,
+  buyerUpdateProfile,
+  buyerGetAllItem,
+  buyerSearchItem,
+  buyerGetAllOrder,
+  buyerCreateOrder
 } from "../services/webServices";
 
 //************* */
@@ -274,4 +278,61 @@ async function buyerUpdateProfileFunc(payload) {
 //   buyerID: 101,
 //   buyerName: "STYSTYHELLO",
 //   buyerGender: 1
+// });
+
+async function buyerGetAllItemFunc() {
+  const buyerGetAllItemResp = await buyerGetAllItem();
+  console.log("buyerGetAllItem Status Code: " + buyerGetAllItemResp.status);
+  console.log(
+    "buyerGetAllItem Data: " + JSON.stringify(buyerGetAllItemResp.data)
+  );
+}
+
+// buyerGetAllItemFunc();
+
+async function buyerSearchItemFunc(payload) {
+  const buyerSearchItemResp = await buyerSearchItem(payload);
+  console.log("buyerSearchItem Status Code: " + buyerSearchItemResp.status);
+  console.log(
+    "buyerSearchItem Data: " + JSON.stringify(buyerSearchItemResp.data)
+  );
+}
+
+// buyerSearchItemFunc({
+//   type: "quantity",
+//   key: 100
+// });
+
+// buyerSearchItemFunc({
+//   type: "keyword",
+//   key: "o"
+// });
+
+// buyerSearchItemFunc({
+//   type: "category",
+//   key: "this"
+// });
+
+async function buyerGetAllOrderFunc(buyerID) {
+  const buyerGetAllOrderResp = await buyerGetAllOrder(buyerID);
+  console.log("buyerGetAllOrder Status Code: " + buyerGetAllOrderResp.status);
+  console.log(
+    "buyerGetAllOrder Data: " + JSON.stringify(buyerGetAllOrderResp.data)
+  );
+}
+
+// buyerGetAllOrderFunc(101);
+
+async function buyerCreateOrderFunc(payload) {
+  const buyerCreateOrderResp = await buyerCreateOrder(payload);
+  console.log("buyerCreateOrder Status Code: " + buyerCreateOrderResp.status);
+  console.log(
+    "buyerCreateOrder Data: " + JSON.stringify(buyerCreateOrderResp.data)
+  );
+}
+
+// buyerCreateOrderFunc({
+//   itemID: 552,
+//   sellerID: 201,
+//   buyerID: 101
 // });
