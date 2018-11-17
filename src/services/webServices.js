@@ -3,8 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deactivateSeller = exports.activateSeller = exports.deactivateBuyer = exports.activateBuyer = exports.getAllSeller = exports.getAllBuyer = exports.adminLogin = undefined;
+exports.buyerUpdateProfile = exports.buyerLogin = exports.buyerRegister = exports.sellerUpdateOrderStatus = exports.sellerGetAllOrder = exports.sellerSearchItemByKey = exports.sellerGetAllItem = exports.sellerDeleteItem = exports.sellerEditItem = exports.sellerAddItem = exports.sellerUpdateProfile = exports.sellerLogin = exports.sellerRegister = exports.deactivateSeller = exports.activateSeller = exports.deactivateBuyer = exports.activateBuyer = exports.getAllSeller = exports.getAllBuyer = exports.adminLogin = undefined;
 
+// ADMIN
 let adminLogin = exports.adminLogin = (() => {
   var _ref = _asyncToGenerator(function* (payload) {
     let resp = yield _axios2.default.put("/admin/login", payload);
@@ -79,6 +80,174 @@ let deactivateSeller = exports.deactivateSeller = (() => {
 
   return function deactivateSeller(_x5) {
     return _ref7.apply(this, arguments);
+  };
+})(); // SELLER
+
+
+let sellerRegister = exports.sellerRegister = (() => {
+  var _ref8 = _asyncToGenerator(function* (payload) {
+    let resp = yield _axios2.default.post("/seller/register", payload);
+    return resp;
+  });
+
+  return function sellerRegister(_x6) {
+    return _ref8.apply(this, arguments);
+  };
+})();
+
+let sellerLogin = exports.sellerLogin = (() => {
+  var _ref9 = _asyncToGenerator(function* (payload) {
+    let resp = yield _axios2.default.put("/seller/login", payload);
+    return resp;
+  });
+
+  return function sellerLogin(_x7) {
+    return _ref9.apply(this, arguments);
+  };
+})();
+
+let sellerUpdateProfile = exports.sellerUpdateProfile = (() => {
+  var _ref10 = _asyncToGenerator(function* (payload) {
+    const {
+      sellerID,
+      sellerName,
+      sellerGender
+    } = payload;
+    let resp = yield _axios2.default.put(`/seller/profile/${sellerID}/${sellerName}/${sellerGender}`);
+    return resp;
+  });
+
+  return function sellerUpdateProfile(_x8) {
+    return _ref10.apply(this, arguments);
+  };
+})();
+
+let sellerAddItem = exports.sellerAddItem = (() => {
+  var _ref11 = _asyncToGenerator(function* (payload) {
+    const {
+      sellerID,
+      item
+    } = payload;
+    let resp = yield _axios2.default.put("/seller/item/add/" + sellerID, item);
+    return resp;
+  });
+
+  return function sellerAddItem(_x9) {
+    return _ref11.apply(this, arguments);
+  };
+})();
+
+let sellerEditItem = exports.sellerEditItem = (() => {
+  var _ref12 = _asyncToGenerator(function* (payload) {
+    let resp = yield _axios2.default.put("/seller/item/edit", payload);
+    return resp;
+  });
+
+  return function sellerEditItem(_x10) {
+    return _ref12.apply(this, arguments);
+  };
+})();
+
+let sellerDeleteItem = exports.sellerDeleteItem = (() => {
+  var _ref13 = _asyncToGenerator(function* (itemID) {
+    let resp = yield _axios2.default.put("/seller/item/delete/" + itemID);
+    return resp;
+  });
+
+  return function sellerDeleteItem(_x11) {
+    return _ref13.apply(this, arguments);
+  };
+})();
+
+let sellerGetAllItem = exports.sellerGetAllItem = (() => {
+  var _ref14 = _asyncToGenerator(function* (sellerID) {
+    let resp = yield _axios2.default.get(`/seller/item/all/${sellerID}`);
+    return resp;
+  });
+
+  return function sellerGetAllItem(_x12) {
+    return _ref14.apply(this, arguments);
+  };
+})();
+
+let sellerSearchItemByKey = exports.sellerSearchItemByKey = (() => {
+  var _ref15 = _asyncToGenerator(function* (payload) {
+    const {
+      keyword,
+      sellerID
+    } = payload;
+    let resp = yield _axios2.default.get(`seller/item/search/${sellerID}/${keyword}`);
+    return resp;
+  });
+
+  return function sellerSearchItemByKey(_x13) {
+    return _ref15.apply(this, arguments);
+  };
+})();
+
+let sellerGetAllOrder = exports.sellerGetAllOrder = (() => {
+  var _ref16 = _asyncToGenerator(function* (sellerID) {
+    let resp = yield _axios2.default.get("/seller/order/all/" + sellerID);
+    return resp;
+  });
+
+  return function sellerGetAllOrder(_x14) {
+    return _ref16.apply(this, arguments);
+  };
+})();
+
+let sellerUpdateOrderStatus = exports.sellerUpdateOrderStatus = (() => {
+  var _ref17 = _asyncToGenerator(function* (payload) {
+    const {
+      orderID,
+      newStatus
+    } = payload;
+    console.log(`/seller/order/edit/${orderID}/${newStatus}`);
+    let resp = yield _axios2.default.put(`/seller/order/edit/${orderID}/${newStatus}`);
+    return resp;
+  });
+
+  return function sellerUpdateOrderStatus(_x15) {
+    return _ref17.apply(this, arguments);
+  };
+})(); // BUYER
+
+
+let buyerRegister = exports.buyerRegister = (() => {
+  var _ref18 = _asyncToGenerator(function* (payload) {
+    let resp = yield _axios2.default.post("/buyer/register", payload);
+    return resp;
+  });
+
+  return function buyerRegister(_x16) {
+    return _ref18.apply(this, arguments);
+  };
+})();
+
+let buyerLogin = exports.buyerLogin = (() => {
+  var _ref19 = _asyncToGenerator(function* (payload) {
+    let resp = yield _axios2.default.put("/buyer/login", payload);
+    return resp;
+  });
+
+  return function buyerLogin(_x17) {
+    return _ref19.apply(this, arguments);
+  };
+})();
+
+let buyerUpdateProfile = exports.buyerUpdateProfile = (() => {
+  var _ref20 = _asyncToGenerator(function* (payload) {
+    const {
+      buyerID,
+      buyerName,
+      buyerGender
+    } = payload;
+    let resp = yield _axios2.default.put(`/buyer/profile/${buyerID}/${buyerName}/${buyerGender}`);
+    return resp;
+  });
+
+  return function buyerUpdateProfile(_x18) {
+    return _ref20.apply(this, arguments);
   };
 })();
 

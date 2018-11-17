@@ -5,8 +5,25 @@ import {
   activateBuyer,
   deactivateBuyer,
   activateSeller,
-  deactivateSeller
+  deactivateSeller,
+  sellerRegister,
+  sellerLogin,
+  sellerUpdateProfile,
+  buyerRegister,
+  buyerLogin,
+  buyerUpdateProfile,
+  sellerAddItem,
+  sellerEditItem,
+  sellerDeleteItem,
+  sellerGetAllItem,
+  sellerSearchItemByKey,
+  sellerGetAllOrder,
+  sellerUpdateOrderStatus
 } from "../services/webServices";
+
+//************* */
+//ADMIN
+//************* */
 
 async function adminLoginFunc(payload) {
   const adminLoginResp = await adminLogin(payload);
@@ -61,7 +78,7 @@ async function activateSellerFunc(id) {
   );
 }
 
-activateSellerFunc(201);
+// activateSellerFunc(201);
 
 async function deactivateSellerFunc(id) {
   const deactivateSellerResp = await deactivateSeller(id);
@@ -72,3 +89,189 @@ async function deactivateSellerFunc(id) {
 }
 
 // deactivateSellerFunc(201);
+
+//************* */
+//SELLER
+//************* */
+
+async function sellerRegisterFunc(payload) {
+  const sellerRegisterResp = await sellerRegister(payload);
+  console.log("sellerRegister Status Code: " + sellerRegisterResp.status);
+  console.log(
+    "sellerRegister Data: " + JSON.stringify(sellerRegisterResp.data)
+  );
+}
+
+// sellerRegisterFunc({
+//   username: "sellerABC",
+//   password: "sellerABC",
+//   name: "STYSTYSTYTIMEABC",
+//   gender: 1
+// });
+
+async function sellerLoginFunc(payload) {
+  const sellerLoginResp = await sellerLogin(payload);
+  console.log("sellerLogin Status Code: " + sellerLoginResp.status);
+  console.log("sellerLogin Data: " + JSON.stringify(sellerLoginResp.data));
+}
+
+// sellerLoginFunc({
+//   username: "sellerABC",
+//   password: "sellerABC"
+// });
+
+async function sellerUpdateProfileFunc(payload) {
+  const sellerUpdateProfileResp = await sellerUpdateProfile(payload);
+  console.log(
+    "sellerUpdateProfile Status Code: " + sellerUpdateProfileResp.status
+  );
+  console.log(
+    "sellerUpdateProfile Data: " + JSON.stringify(sellerUpdateProfileResp.data)
+  );
+}
+
+// sellerUpdateProfileFunc({
+//   sellerID: 201,
+//   sellerName: "STYSTYHELLO",
+//   sellerGender: 1
+// });
+
+async function sellerAddItemFunc(payload) {
+  const sellerAddItemResp = await sellerAddItem(payload);
+  console.log("sellerAddItem Status Code: " + sellerAddItemResp.status);
+  console.log("sellerAddItem Data: " + JSON.stringify(sellerAddItemResp.data));
+}
+
+// sellerAddItemFunc({
+//   sellerID: 201,
+//   item: {
+//     name: "from axios ABC",
+//     description: "tes22t ABC from axios",
+//     category: "axios",
+//     price: 10,
+//     quantity: 100
+//   }
+// });
+
+async function sellerEditItemFunc(payload) {
+  const sellerEditItemResp = await sellerEditItem(payload);
+  console.log("sellerEditItem Status Code: " + sellerEditItemResp.status);
+  console.log(
+    "sellerEditItem Data: " + JSON.stringify(sellerEditItemResp.data)
+  );
+}
+
+// sellerEditItemFunc({
+//   id: 802,
+//   name: "from axios ABC",
+//   description: "tes22t ABC from axios",
+//   category: "axiosABC",
+//   price: 10,
+//   quantity: 1020
+// });
+
+async function sellerDeleteItemFunc(itemID) {
+  const sellerDeleteItemResp = await sellerDeleteItem(itemID);
+  console.log("sellerDeleteItem Status Code: " + sellerDeleteItemResp.status);
+  console.log(
+    "sellerDeleteItem Data: " + JSON.stringify(sellerDeleteItemResp.data)
+  );
+}
+
+// sellerDeleteItemFunc(802);
+
+async function sellerGetAllItemFunc(sellerID) {
+  const sellerGetAllItemResp = await sellerGetAllItem(sellerID);
+  console.log("sellerGetAllItem Status Code: " + sellerGetAllItemResp.status);
+  console.log(
+    "sellerGetAllItem Data: " + JSON.stringify(sellerGetAllItemResp.data)
+  );
+}
+
+// sellerGetAllItemFunc(201);
+
+async function sellerSearchItemByKeyFunc(payload) {
+  const sellerSearchItemByKeyResp = await sellerSearchItemByKey(payload);
+  console.log(
+    "sellerSearchItemByKey Status Code: " + sellerSearchItemByKeyResp.status
+  );
+  console.log(
+    "sellerSearchItemByKey Data: " +
+      JSON.stringify(sellerSearchItemByKeyResp.data)
+  );
+}
+
+// sellerSearchItemByKeyFunc({
+//   sellerID: 201,
+//   keyword: "o"
+// });
+
+async function sellerGetAllOrderFunc(sellerID) {
+  const sellerGetAllOrderResp = await sellerGetAllOrder(sellerID);
+  console.log("sellerGetAllOrder Status Code: " + sellerGetAllOrderResp.status);
+  console.log(
+    "sellerGetAllOrder Data: " + JSON.stringify(sellerGetAllOrderResp.data)
+  );
+}
+
+// sellerGetAllOrderFunc(201);
+
+async function sellerUpdateOrderStatusFunc(payload) {
+  const sellerUpdateOrderStatusResp = await sellerUpdateOrderStatus(payload);
+  console.log(
+    "sellerUpdateOrderStatus Status Code: " + sellerUpdateOrderStatusResp.status
+  );
+  console.log(
+    "sellerUpdateOrderStatus Data: " +
+      JSON.stringify(sellerUpdateOrderStatusResp.data)
+  );
+}
+
+// sellerUpdateOrderStatusFunc({
+//   orderID: 260,
+//   newStatus: "STYSTYHELLO"
+// });
+
+//************* */
+//BUYER
+//************* */
+
+async function buyerRegisterFunc(payload) {
+  const buyerRegisterResp = await buyerRegister(payload);
+  console.log("buyerRegister Status Code: " + buyerRegisterResp.status);
+  console.log("buyerRegister Data: " + JSON.stringify(buyerRegisterResp.data));
+}
+
+// buyerRegisterFunc({
+//   username: "buyerABC",
+//   password: "buyerABC",
+//   name: "STYSTYSTYTIMEABC",
+//   gender: 1
+// });
+
+async function buyerLoginFunc(payload) {
+  const buyerLoginResp = await buyerLogin(payload);
+  console.log("buyerLogin Status Code: " + buyerLoginResp.status);
+  console.log("buyerLogin Data: " + JSON.stringify(buyerLoginResp.data));
+}
+
+// buyerLoginFunc({
+//   username: "buyerABC",
+//   password: "buyerABC"
+// });
+
+async function buyerUpdateProfileFunc(payload) {
+  const buyerUpdateProfileResp = await buyerUpdateProfile(payload);
+  console.log(
+    "buyerUpdateProfile Status Code: " + buyerUpdateProfileResp.status
+  );
+  console.log(
+    "buyerUpdateProfile Data: " + JSON.stringify(buyerUpdateProfileResp.data)
+  );
+}
+
+// buyerUpdateProfileFunc({
+//   buyerID: 101,
+//   buyerName: "STYSTYHELLO",
+//   buyerGender: 1
+// });
