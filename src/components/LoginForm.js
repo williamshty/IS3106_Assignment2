@@ -5,10 +5,6 @@ import { adminLogin, sellerLogin, buyerLogin } from "../utils/webServices";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { routerRedux } from "dva/router";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import IconButton from "@material-ui/core/IconButton";
 import { withStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
@@ -177,7 +173,19 @@ class LoginForm extends React.Component {
           >
             Submit
           </SubmitButton>
-          <RegistrationButton>No account? Register</RegistrationButton>
+          <RegistrationButton
+            onClick={() => {
+              this.props.dispatch({
+                type: "navigator/save",
+                payload: {
+                  loginShow: false,
+                  registrationShow: true
+                }
+              });
+            }}
+          >
+            No account? Register
+          </RegistrationButton>
         </Grid>
       </LoginContainer>
     );
