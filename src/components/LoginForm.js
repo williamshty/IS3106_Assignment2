@@ -125,16 +125,6 @@ class LoginForm extends React.Component {
   };
   render() {
     return (
-      // <LoginContainer>
-      // <Grid
-      //   container
-      //   direction="column"
-      //   justify="space-around"
-      //   alignItems="center"
-      // >
-
-      //   </Grid>
-      // </LoginContainer>
       <LoginContainer>
         <Grid
           container
