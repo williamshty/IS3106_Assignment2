@@ -64,6 +64,14 @@ class SellerItem extends React.Component {
     );
     if (sellerDeleteItemResp.status < 400) {
       this.sellerGetAllItemFunc(this.props.sellerStore.sellerID);
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage:
+            "Delete Item Failed, item may be associated with some other orders"
+        }
+      });
     }
   }
   componentDidMount() {

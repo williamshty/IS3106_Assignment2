@@ -13,6 +13,7 @@ import BuyerOrder from "../components/BuyerOrder";
 import { routerRedux } from "dva/router";
 import { withStyles, TextField } from "@material-ui/core";
 import BuyerEditOrder from "../components/BuyerEditOrder";
+import InformationBar from "../components/InformationBar";
 
 const NavigationButton = withStyles({
   root: {
@@ -55,6 +56,8 @@ class BuyerIndexPage extends React.Component {
   render() {
     return (
       <Fragment>
+        <InformationBar />
+
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>

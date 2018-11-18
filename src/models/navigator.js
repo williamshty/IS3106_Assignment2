@@ -3,7 +3,8 @@ export default {
 
   state: {
     login: false,
-    userType: "buyer",
+    infoBarMessage: "",
+    userType: "",
     loginShow: true,
     registrationShow: false,
     profileShow: false,

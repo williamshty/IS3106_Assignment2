@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import AdminUserTable from "../components/AdminUserTable";
 import { routerRedux } from "dva/router";
+import InformationBar from "../components/InformationBar";
 
 class AdminIndexPage extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class AdminIndexPage extends React.Component {
   render() {
     return (
       <Fragment>
+        <InformationBar />
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>

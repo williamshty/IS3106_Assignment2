@@ -12,6 +12,7 @@ import SellerItem from "../components/SellerItem";
 import SellerOrder from "../components/SellerOrder";
 import { routerRedux } from "dva/router";
 import { withStyles, TextField } from "@material-ui/core";
+import InformationBar from "../components/InformationBar";
 
 const NavigationButton = withStyles({
   root: {
@@ -54,6 +55,8 @@ class SellerIndexPage extends React.Component {
   render() {
     return (
       <Fragment>
+        <InformationBar />
+
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>

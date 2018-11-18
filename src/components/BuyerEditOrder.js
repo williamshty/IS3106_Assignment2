@@ -92,6 +92,13 @@ class BuyerEditOrder extends React.Component {
         type: "navigator/save",
         payload: { buyerOrderShow: true }
       });
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage: "Order Edit Failed"
+        }
+      });
     }
   }
 

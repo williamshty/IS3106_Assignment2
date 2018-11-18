@@ -80,6 +80,13 @@ class SellerAddItem extends React.Component {
         type: "navigator/save",
         payload: { sellerItemShow: true }
       });
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage: "Item Add failed"
+        }
+      });
     }
   }
 

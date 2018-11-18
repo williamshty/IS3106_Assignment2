@@ -54,6 +54,13 @@ class SellerOrder extends React.Component {
     );
     if (sellerUpdateOrderStatusResp.status < 400) {
       this.sellerGetAllOrderFunc(this.props.sellerStore.sellerID);
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage: "Update Order Status Failed"
+        }
+      });
     }
   }
 

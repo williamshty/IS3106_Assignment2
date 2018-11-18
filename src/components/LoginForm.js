@@ -67,6 +67,14 @@ class LoginForm extends React.Component {
     const adminLoginResp = await adminLogin(payload);
     if (adminLoginResp.status < 400) {
       this.props.dispatch(routerRedux.push({ pathname: "/admin" }));
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage:
+            "Admin Login Failed, Username or password may be incorrect"
+        }
+      });
     }
     console.log("adminLogin Data: " + JSON.stringify(adminLoginResp.data));
   }
@@ -81,6 +89,14 @@ class LoginForm extends React.Component {
         }
       });
       this.props.dispatch(routerRedux.push({ pathname: "/seller" }));
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage:
+            "Seller Login Failed, Password or Username may be incorrect or you may have been deactivated"
+        }
+      });
     }
     console.log("sellerLogin Data: " + JSON.stringify(sellerLoginResp.data));
   }
@@ -104,6 +120,14 @@ class LoginForm extends React.Component {
         type: "buyerStore/recoverCart"
       });
       this.props.dispatch(routerRedux.push({ pathname: "/buyer" }));
+    } else {
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          infoBarMessage:
+            "Buyer Login Failed, Password or Username may be incorrect or you may have been deactivated"
+        }
+      });
     }
     console.log("buyerLogin Data: " + JSON.stringify(buyerLoginResp.data));
   }
