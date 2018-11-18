@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.buyerCreateOrder = exports.buyerGetAllOrder = exports.buyerSearchItem = exports.buyerGetAllItem = exports.buyerUpdateProfile = exports.buyerLogin = exports.buyerRegister = exports.sellerUpdateOrderStatus = exports.sellerGetAllOrder = exports.sellerSearchItemByKey = exports.sellerGetAllItem = exports.sellerDeleteItem = exports.sellerEditItem = exports.sellerAddItem = exports.sellerUpdateProfile = exports.sellerLogin = exports.sellerRegister = exports.deactivateSeller = exports.activateSeller = exports.deactivateBuyer = exports.activateBuyer = exports.getAllSeller = exports.getAllBuyer = exports.adminLogin = undefined;
+exports.buyerCreateOrder = exports.buyerEditOrder = exports.buyerGetAllOrder = exports.buyerSearchItem = exports.buyerGetAllItem = exports.buyerUpdateProfile = exports.buyerLogin = exports.buyerRegister = exports.sellerUpdateOrderStatus = exports.sellerGetAllOrder = exports.sellerSearchItemByKey = exports.sellerGetAllItem = exports.sellerDeleteItem = exports.sellerEditItem = exports.sellerAddItem = exports.sellerUpdateProfile = exports.sellerLogin = exports.sellerRegister = exports.deactivateSeller = exports.activateSeller = exports.deactivateBuyer = exports.activateBuyer = exports.getAllSeller = exports.getAllBuyer = exports.adminLogin = undefined;
 
 //************* */
 //ADMIN
@@ -293,8 +293,24 @@ let buyerGetAllOrder = exports.buyerGetAllOrder = (() => {
   };
 })();
 
-let buyerCreateOrder = exports.buyerCreateOrder = (() => {
+let buyerEditOrder = exports.buyerEditOrder = (() => {
   var _ref24 = _asyncToGenerator(function* (payload) {
+    const {
+      orderID,
+      rating,
+      review
+    } = payload;
+    let resp = yield _axios2.default.put(`/buyer/order/edit/${orderID}/${rating}/${review}`);
+    return resp;
+  });
+
+  return function buyerEditOrder(_x21) {
+    return _ref24.apply(this, arguments);
+  };
+})();
+
+let buyerCreateOrder = exports.buyerCreateOrder = (() => {
+  var _ref25 = _asyncToGenerator(function* (payload) {
     const {
       itemID,
       sellerID,
@@ -304,8 +320,8 @@ let buyerCreateOrder = exports.buyerCreateOrder = (() => {
     return resp;
   });
 
-  return function buyerCreateOrder(_x21) {
-    return _ref24.apply(this, arguments);
+  return function buyerCreateOrder(_x22) {
+    return _ref25.apply(this, arguments);
   };
 })();
 

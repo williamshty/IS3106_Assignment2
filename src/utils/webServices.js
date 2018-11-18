@@ -139,6 +139,14 @@ export async function buyerGetAllOrder(buyerID) {
   return resp;
 }
 
+export async function buyerEditOrder(payload) {
+  const { orderID, rating, review } = payload;
+  let resp = await axios.put(
+    `/buyer/order/edit/${orderID}/${rating}/${review}`
+  );
+  return resp;
+}
+
 export async function buyerCreateOrder(payload) {
   const { itemID, sellerID, buyerID } = payload;
   let resp = await axios.put(

@@ -2,18 +2,8 @@ export default {
   namespace: "sellerStore",
 
   state: {
-    sellerID: 201,
-    sellerEntity: {
-      id: 201,
-      username: "TY",
-      password: null,
-      gender: 1,
-      name: "STYSTYHELLO",
-      status: true,
-      saleOrders: null,
-      items: null,
-      orders: null
-    },
+    sellerID: "",
+    sellerEntity: {},
     currentItem: {
       id: "",
       name: "",

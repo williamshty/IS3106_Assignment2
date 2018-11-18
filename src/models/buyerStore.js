@@ -2,11 +2,28 @@ export default {
   namespace: "buyerStore",
 
   state: {
-    buyerID: "",
-    buyerEntity: {},
+    buyerID: 101,
+    buyerEntity: {
+      id: 101,
+      username: "123",
+      password: null,
+      gender: 1,
+      name: "STYSTYHELLO",
+      status: true,
+      saleOrders: null,
+      orders: null,
+      cart: null
+    },
     itemList: [],
     prevOrderList: [],
-    cart: []
+    cart: [],
+    currentOrder: {
+      id: 0,
+      itemId: 0,
+      rating: "",
+      review: "",
+      status: ""
+    }
   },
 
   subscriptions: {

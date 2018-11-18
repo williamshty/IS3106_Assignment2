@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 
 const EditOrderContainer = styled.div`
   width: 500px;
-  height: 500px;
+  height: 400px;
   border-radius: 20px;
   position: absolute;
   background-color: #ffa801;
@@ -56,7 +56,7 @@ const CustomTextInput = withStyles({
     marginBottom: 11
   }
 })(TextField);
-class BuyerCheckout extends React.Component {
+class BuyerEditOrder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,6 +97,11 @@ class BuyerCheckout extends React.Component {
 
   componentDidMount() {}
   componentWillUnmount() {}
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+  };
 
   render() {
     return (
@@ -107,44 +112,58 @@ class BuyerCheckout extends React.Component {
           justify="space-between"
           alignOrders="center"
         >
-          <FormTitleEdit>Checkout Cart</FormTitleEdit>
+          <FormTitleEdit>
+            Edit Order ID: {this.props.buyerStore.currentOrder.id}
+          </FormTitleEdit>
           <CustomTextInput
             fullWidth
             id="outlined-rating"
-            label="Card Number"
-            margin="normal"
-            variant="outlined"
-          />
-
-          <CustomTextInput
-            id="filled-select-currency-native"
-            type="month"
-            label="Expiry Month"
-            SelectProps={{
-              native: true
+            label="Rating"
+            value={this.props.buyerStore.currentOrder.rating}
+            onChange={e => {
+              this.props.dispatch({
+                type: "buyerStore/save",
+                payload: {
+                  currentOrder: {
+                    ...this.props.buyerStore.currentOrder,
+                    ...{ rating: e.target.value }
+                  }
+                }
+              });
             }}
             margin="normal"
-            variant="filled"
+            variant="outlined"
           />
           <CustomTextInput
             fullWidth
             id="outlined-review"
-            label="CVV/2"
-            type="password"
+            label="Review"
+            value={this.props.buyerStore.currentOrder.review}
+            onChange={e => {
+              this.props.dispatch({
+                type: "buyerStore/save",
+                payload: {
+                  currentOrder: {
+                    ...this.props.buyerStore.currentOrder,
+                    ...{ review: e.target.value }
+                  }
+                }
+              });
+            }}
             margin="normal"
             variant="outlined"
           />
 
           <SubmitButtonEdit
-            onClick={() => {
-              this.props.dispatch({ type: "navigator/clearBuyer" });
-              this.props.dispatch({
-                type: "navigator/save",
-                payload: { buyerOrderShow: true }
-              });
-            }}
+            onClick={() =>
+              this.buyerEditOrderFunc({
+                orderID: this.props.buyerStore.currentOrder.id,
+                rating: this.props.buyerStore.currentOrder.rating,
+                review: this.props.buyerStore.currentOrder.review
+              })
+            }
           >
-            Confirm
+            Update
           </SubmitButtonEdit>
         </Grid>
       </EditOrderContainer>
@@ -152,10 +171,10 @@ class BuyerCheckout extends React.Component {
   }
 }
 
-BuyerCheckout.propTypes = {};
+BuyerEditOrder.propTypes = {};
 
 function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(BuyerCheckout);
+export default connect(mapStateToProps)(BuyerEditOrder);

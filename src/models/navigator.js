@@ -3,7 +3,7 @@ export default {
 
   state: {
     login: false,
-    userType: "seller",
+    userType: "buyer",
     loginShow: true,
     registrationShow: false,
     profileShow: false,
@@ -16,7 +16,8 @@ export default {
     buyerItemShow: false,
     buyerCartShow: false,
     buyerCheckoutShow: false,
-    buyerOrderShow: false
+    buyerOrderShow: false,
+    buyerEditOrderShow: false
   },
 
   subscriptions: {
@@ -61,7 +62,8 @@ export default {
           buyerItemShow: false,
           buyerCartShow: false,
           buyerCheckoutShow: false,
-          buyerOrderShow: false
+          buyerOrderShow: false,
+          buyerEditOrderShow: false
         }
       };
     },
@@ -86,7 +88,8 @@ export default {
           buyerItemShow: false,
           buyerCartShow: false,
           buyerCheckoutShow: false,
-          buyerOrderShow: false
+          buyerOrderShow: false,
+          buyerEditOrderShow: false
         }
       };
     }

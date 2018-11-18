@@ -22,6 +22,7 @@ import {
   buyerGetAllItem,
   buyerSearchItem,
   buyerGetAllOrder,
+  buyerEditOrder,
   buyerCreateOrder
 } from "../services/webServices";
 
@@ -322,6 +323,20 @@ async function buyerGetAllOrderFunc(buyerID) {
 }
 
 // buyerGetAllOrderFunc(101);
+
+async function buyerEditOrderFunc(payload) {
+  const buyerEditOrderResp = await buyerEditOrder(payload);
+  console.log("buyerEditOrder Status Code: " + buyerEditOrderResp.status);
+  console.log(
+    "buyerEditOrder Data: " + JSON.stringify(buyerEditOrderResp.data)
+  );
+}
+
+// buyerEditOrderFunc({
+//   orderID: 701,
+//   rating: "rating",
+//   review: "101"
+// });
 
 async function buyerCreateOrderFunc(payload) {
   const buyerCreateOrderResp = await buyerCreateOrder(payload);

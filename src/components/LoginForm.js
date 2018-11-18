@@ -94,6 +94,15 @@ class LoginForm extends React.Component {
           buyerID: buyerLoginResp.data.id
         }
       });
+      this.props.dispatch({
+        type: "navigator/save",
+        payload: {
+          login: true
+        }
+      });
+      this.props.dispatch({
+        type: "buyerStore/recoverCart"
+      });
       this.props.dispatch(routerRedux.push({ pathname: "/buyer" }));
     }
     console.log("buyerLogin Data: " + JSON.stringify(buyerLoginResp.data));
@@ -176,6 +185,15 @@ class LoginForm extends React.Component {
           >
             No account? Register
           </RegistrationButton>
+          {this.props.navigator.userType === "buyer" && (
+            <RegistrationButton
+              onClick={() => {
+                this.props.dispatch(routerRedux.push({ pathname: "/buyer" }));
+              }}
+            >
+              Continue As a Guest
+            </RegistrationButton>
+          )}
         </Grid>
       </LoginContainer>
     );

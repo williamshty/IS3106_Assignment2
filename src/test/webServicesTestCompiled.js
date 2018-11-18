@@ -368,17 +368,34 @@ let buyerGetAllOrderFunc = (() => {
 })(); // buyerGetAllOrderFunc(101);
 
 
-let buyerCreateOrderFunc = (() => {
+let buyerEditOrderFunc = (() => {
   var _ref24 = _asyncToGenerator(function* (payload) {
+    const buyerEditOrderResp = yield (0, _webServices.buyerEditOrder)(payload);
+    console.log("buyerEditOrder Status Code: " + buyerEditOrderResp.status);
+    console.log("buyerEditOrder Data: " + JSON.stringify(buyerEditOrderResp.data));
+  });
+
+  return function buyerEditOrderFunc(_x21) {
+    return _ref24.apply(this, arguments);
+  };
+})();
+
+let buyerCreateOrderFunc = (() => {
+  var _ref25 = _asyncToGenerator(function* (payload) {
     const buyerCreateOrderResp = yield (0, _webServices.buyerCreateOrder)(payload);
     console.log("buyerCreateOrder Status Code: " + buyerCreateOrderResp.status);
     console.log("buyerCreateOrder Data: " + JSON.stringify(buyerCreateOrderResp.data));
   });
 
-  return function buyerCreateOrderFunc(_x21) {
-    return _ref24.apply(this, arguments);
+  return function buyerCreateOrderFunc(_x22) {
+    return _ref25.apply(this, arguments);
   };
-})();
+})(); // buyerCreateOrderFunc({
+//   itemID: 552,
+//   sellerID: 201,
+//   buyerID: 101
+// });
+
 
 var _webServices = require("../services/webServices");
 
@@ -386,8 +403,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-buyerCreateOrderFunc({
-  itemID: 552,
-  sellerID: 201,
-  buyerID: 101
+buyerEditOrderFunc({
+  orderID: 701,
+  rating: "rating",
+  review: "101"
 });
